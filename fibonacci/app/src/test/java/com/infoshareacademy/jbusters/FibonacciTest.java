@@ -20,7 +20,7 @@ public class FibonacciTest {
 
         List<Integer> expected = new ArrayList<>(Arrays.asList(0,1,1,2,3,5));
         //then
-        Assert.assertEquals(expected,fibonacci.getFibonacciSequece(i));
+        Assert.assertEquals(expected,fibonacci.getFibonacciSequence(i));
 
     }
     @Test
@@ -32,7 +32,7 @@ public class FibonacciTest {
 
         List<Integer> expected = new ArrayList<>(Arrays.asList(0));
         //then
-        Assert.assertEquals(expected,fibonacci.getFibonacciSequece(i));
+        Assert.assertEquals(expected,fibonacci.getFibonacciSequence(i));
 
     }
     @Test
@@ -44,7 +44,7 @@ public class FibonacciTest {
 
         List<Integer> expected = new ArrayList<>(Arrays.asList(0,1));
         //then
-        Assert.assertEquals(expected,fibonacci.getFibonacciSequece(i));
+        Assert.assertEquals(expected,fibonacci.getFibonacciSequence(i));
 
     }
     @Test
@@ -56,7 +56,7 @@ public class FibonacciTest {
 
         List<Integer> expected = new ArrayList<>(Arrays.asList(0,1,1));
         //then
-        Assert.assertEquals(expected,fibonacci.getFibonacciSequece(i));
+        Assert.assertEquals(expected,fibonacci.getFibonacciSequence(i));
 
     }
     @Test
@@ -68,7 +68,7 @@ public class FibonacciTest {
 
         List<Integer> expected = new ArrayList<>(Arrays.asList(0,1,1,2));
         //then
-        Assert.assertEquals(expected,fibonacci.getFibonacciSequece(i));
+        Assert.assertEquals(expected,fibonacci.getFibonacciSequence(i));
 
     }
 

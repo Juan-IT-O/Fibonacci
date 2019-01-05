@@ -17,6 +17,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.infoshareacademy.jbusters.Fibonacci;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
+
 
 @WebServlet(urlPatterns = "/fibonacciSequence")
 public class fibonacciSequenceServlet extends HttpServlet{
@@ -31,15 +34,30 @@ public class fibonacciSequenceServlet extends HttpServlet{
 
             resp.addHeader("Content-Type", "text/html; charset=utf-8");
             PrintWriter out = resp.getWriter();
-
-            //todo validacja wprowadzonego parametru - tylko dodatnie liczby całkowite
-            int requestedElement = Integer.parseInt(req.getParameter("element"));
-            List<BigInteger> fibonacciList = new Fibonacci().getFibonacciSequence(requestedElement);
+            String element = req.getParameter("element");
 
             Map<String, Object> model = new HashMap<>();
-            model.put("fibonacciList", fibonacciList);
-
             Template template = templateProvider.getTemplate(getServletContext(), TEMPLATE_NAME);
+            if(StringUtils.isNotEmpty(element)){
+                if(NumberUtils.isDigits(element) && NumberUtils.isParsable(element)){
+                    int requestedElement = Integer.parseInt(req.getParameter("element"));
+                    if(requestedElement>=0){
+                        List<BigInteger> fibonacciList = new Fibonacci().getFibonacciSequence(requestedElement);
+                        model.put("fibonacciList", fibonacciList);
+
+                    }else{
+                        String msg = "Podana liczba nie jest liczbą dodatnią";
+                        model.put("error", msg);
+                    }
+                }else{
+                    String msg = "Podana wartość nie jest liczbą całkowitą";
+                    model.put("error", msg);
+                }
+            }
+            else{
+                String msg = "Podana wartość nie jest liczbą całkowitą";
+                model.put("error", msg);
+            }
 
             try {
                 template.process(model, out);
@@ -47,6 +65,10 @@ public class fibonacciSequenceServlet extends HttpServlet{
             } catch (TemplateException e) {
                 e.printStackTrace();
             }
+
+
+
+
         }
 
 }

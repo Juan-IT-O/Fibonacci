@@ -1,17 +1,19 @@
+<!--todo napisać ify warunkujace co sie wykorzystuje z modelu-->
+
 <!doctype html>
 <html lang="pl">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="css/form.css">-->
     <title>Fibonacci</title>
-<!--cz-shortcut-listen="true"class="text-center"-->
-<body >
-<div class="container">
+</head>
+
+<body style="background:#E8E8E8">
+<div class="container text-center">
     <div class="row justify-content-center">
         <div class="col-7 align-self-centered">
             <div class="card mb-5 mt-5">
@@ -23,9 +25,9 @@
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-7 align-self-centered">
+        <div class="col-7 align-self-centered mb-5">
             <h3>Lista elementów ciągu Fibonacciego od 0 do ${i}</h3>
-            <table class="table table-striped table-danger table-bordered">
+            <table class="table table-striped table-danger table-bordered display nowrap">
 
                 <thead>
 

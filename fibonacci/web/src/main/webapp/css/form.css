@@ -1,9 +1,8 @@
-html,
-body {
+html, body {
   height: 100%;
 }
-
 body {
+
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
@@ -13,10 +12,9 @@ body {
   align-items: center;
   -webkit-box-pack: center;
   justify-content: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
   background-color: #E8E8E8;
 }
+
 
 .form-number {
   width: 100%;

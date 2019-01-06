@@ -39,23 +39,24 @@ public class fibonacciSequenceServlet extends HttpServlet{
             Map<String, Object> model = new HashMap<>();
             Template template = templateProvider.getTemplate(getServletContext(), TEMPLATE_NAME);
             if(StringUtils.isNotEmpty(element)){
-                if(NumberUtils.isDigits(element) && NumberUtils.isParsable(element)){
-                    int requestedElement = Integer.parseInt(req.getParameter("element"));
-                    if(requestedElement>=0){
+                if(NumberUtils.isDigits(element)){
+                    int requestedElement = Integer.parseInt(element);
                         List<BigInteger> fibonacciList = new Fibonacci().getFibonacciSequence(requestedElement);
                         model.put("fibonacciList", fibonacciList);
-
-                    }else{
-                        String msg = "Podana liczba nie jest liczbą dodatnią";
+                }else{
+                    if(element.matches("-?[0-9]*,?\\.?[0-9]*")) {
+                        String msg = "Podana liczba nie jest liczbą całkowitą dodatnią";
                         model.put("error", msg);
                     }
-                }else{
-                    String msg = "Podana wartość nie jest liczbą całkowitą";
-                    model.put("error", msg);
+                    else{
+                        String msg = "Podana wartość nie jest liczbą";
+                        model.put("error", msg);
+                    }
+
                 }
             }
             else{
-                String msg = "Podana wartość nie jest liczbą całkowitą";
+                String msg = "Nie podano żadnej wartości";
                 model.put("error", msg);
             }
 

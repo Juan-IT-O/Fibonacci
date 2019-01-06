@@ -14,8 +14,22 @@
 
 <body style="background:#E8E8E8">
 <div class="container text-center">
+
+    <#if error??>
+        <div class="row justify-content-center mt-5 mb-5">
+            <div class="card col-7 align-self-centered bg-danger">
+                <h1 class="card-header mt-5 mb-5 bg-light">WYSTĄPIŁ BŁĄD !!!</h1>
+                <h3 class="card-text mb-3">${error}</h3>
+            </div>
+
+        </div>
+        <div class="row justify-content-center">
+            <a type="button" class="btn btn-outline-danger col-7 align-self-centered" href="/aplikacja/">Spróbuj jeszcze raz</a>
+        </div>
+
+    <#else>
     <div class="row justify-content-center">
-        <div class="col-7 align-self-centered">
+        <div class="col-10 align-self-centered">
             <div class="card mb-5 mt-5">
                  <#assign i = fibonacciList?size-1 >
                 <h3 class="card-header">Obliczona wartość ${i}-ego elementu wynosi:</h3>
@@ -25,9 +39,9 @@
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-7 align-self-centered mb-5">
+        <div class="col-10 align-self-centered mb-5">
             <h3>Lista elementów ciągu Fibonacciego od 0 do ${i}</h3>
-            <table class="table table-striped table-danger table-bordered display nowrap">
+            <table class="table table-striped table-danger table-bordered display wrap" style="table-layout: fixed; width: 100%">
 
                 <thead>
 
@@ -41,7 +55,7 @@
                 <tr>
                     <#assign n = fib?counter-1 >
                     <th scope="row">${n}</th>
-                    <td>${fib}</td>
+                    <td style="word-wrap: break-word">${fib}</td>
                 </tr>
                 </#list>
                 </tbody>
@@ -49,6 +63,8 @@
             </table>
         </div>
     </div>
+    </#if>
+
 </div>
 
 <!-- Optional JavaScript -->
